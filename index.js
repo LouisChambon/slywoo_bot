@@ -1,11 +1,18 @@
-const Discord = require ('discord.js');
-const client = new Discord.Client();
+const { Client, GatewayIntentBits} = require('discord.js');
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+require('dotenv').config();
 
-client.once('ready', () => {
-    console.log('Slywoo is online !');
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isChatInputCommand()) return;
 
+  if (interaction.commandName === 'ping') {
+    await interaction.reply('Pong!');
+  }
+});
 
-client.login('MTAzMjU5MDAxMTYyOTA2NDI3Mw.G8VB4A.fraJBEsD8olP28xJ4rnz1ggI44ddTq2-D5KU4w');
+client.login(process.env.TOKEN);
