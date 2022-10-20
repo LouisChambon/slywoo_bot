@@ -1,0 +1,27 @@
+{
+  "name": "slywoo-bot",
+  "version": "1.0.0",
+  "description": "Slywoo Discord Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "run tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LouisChambon/slywoo_bot.git"
+  },
+  "keywords": [
+    "Bot",
+    "Discord"
+  ],
+  "author": "Louis Chambon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LouisChambon/slywoo_bot/issues"
+  },
+  "homepage": "https://github.com/LouisChambon/slywoo_bot#readme",
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "nodemon": "^2.0.20"
+  }
+}
