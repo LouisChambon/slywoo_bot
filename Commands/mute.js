@@ -31,16 +31,14 @@ module.exports = {
     async run(client, message, args) {
 
         let user = args.getUser("member");
-        if (!user) return message.reply("Couldn't find this user.")
-
         let member = message.guild.members.cache.get(user.id)
-        if (!member) return message.reply("Couldn't find this user.")
+        if (!member || !user) return message.reply("Couldn't find this user.")
 
         let time = args.getString("time")
         if (!time) return message.reply("Please select time duration !")
 
         if (isNaN(ms(time))) return message.reply("Bad format input !")
-        if (ms(time) > 86400000) return message.reply("The mute duration can't be superior than 28 days !")
+        if (ms(time) > 2419200000) return message.reply("The mute duration can't be superior than 28 days !")
 
         let reason = args.getString("reason")
         if (!reason) reason = "No reason provided.";

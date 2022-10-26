@@ -23,18 +23,16 @@ module.exports = {
     async run(client, message, args) {
 
         let user = args.getUser("member")
-        if(!user) return message.reply("Could not kick this member.")
-        
         let member = message.guild.members.cache.get(user.id)
-        if (!member) return message.reply("No member to kick.")
+        if(!user || !member) return message.reply("Could not kick this member.")
 
         let reason = args.getString("reason");
         if (!reason) reason = "No reason provided.";
 
         if (message.user.id === user.id) return message.reply("You can't kick yourself bro :/")
         if ((await message.guild.fetchOwner()).id === user.id) return message.reply("You can't kick the server owner.")
-        if (member && !member.kickable) return message.reply("I can't kick this member.")
-        if (member && message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply("You don't have the rights to kick this member")
+        if (!member.kickable) return message.reply("I can't kick this member.")
+        if (message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply("You don't have the rights to kick this member")
 
         try {await user.send(`You have been kicked from the server ${message.guild.name} by ${message.user.tag} for the following reason: \`${reason}\``)} catch (err) {}
 
