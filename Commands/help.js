@@ -12,7 +12,8 @@ module.exports = {
             type: "string",
             name: "command",
             description: "The command to display",
-            required: false
+            required: false,
+            autocomplete: true
         }
     ],
 
