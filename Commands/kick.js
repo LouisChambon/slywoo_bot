@@ -5,6 +5,7 @@ module.exports = {
     description: "Kick a member from the server",
     permission: Discord.PermissionFlagsBits.KickMembers,
     dm: false,
+    category: "Moderation",
     options: [
         {
             type: "user",

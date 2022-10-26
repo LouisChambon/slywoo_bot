@@ -6,6 +6,7 @@ module.exports = {
     description: "Return the ping value !",
     permission: "None",
     dm: true,
+    category: "Information",
 
     async run(client, message) {
 

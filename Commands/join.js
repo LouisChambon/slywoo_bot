@@ -5,6 +5,7 @@ module.exports = {
     description: "Join voice channel",
     permission: Discord.PermissionFlagsBits.Connect,
     dm: false,
+    category: "Moderation",
 
     async run(client, message) {
 

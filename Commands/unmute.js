@@ -6,6 +6,7 @@ module.exports = {
     description: "Unmute a member of the server",
     permission: Discord.PermissionFlagsBits.ModerateMembers,
     dm: false,
+    category: "Moderation",
     options: [
         {
             type: "user",

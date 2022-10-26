@@ -6,6 +6,7 @@ module.exports = {
     description: "Clear messages",
     permission: Discord.PermissionFlagsBits.ManageMessages,
     dm: false,
+    category: "Moderation",
     options: [
         {
             type: "number",

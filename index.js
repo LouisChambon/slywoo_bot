@@ -7,6 +7,7 @@ const loadEvents = require('./Loaders/loadEvents');
 dotenv.config();
 
 client.commands = new Discord.Collection();
+client.color = "#ffffff";
 
 loadCommands(client);
 loadEvents(client);
