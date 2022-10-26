@@ -24,6 +24,7 @@ module.exports = {
 
         let user = args.getUser("member")
         if(!user) return message.reply("Could not kick this member.")
+        
         let member = message.guild.members.cache.get(user.id)
         if (!member) return message.reply("No member to kick.")
 

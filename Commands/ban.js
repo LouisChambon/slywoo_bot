@@ -25,6 +25,7 @@ module.exports = {
         try {
             let user = await client.users.fetch(args._hoistedOptions[0].value)
             if(!user) return message.reply("Could not ban this member.")
+            
             let member = message.guild.members.cache.get(user.id)
 
             let reason = args.getString("reason");
