@@ -10,7 +10,7 @@ module.exports = async (client) => {
     client.user.setPresence({
         status: "dnd",
         activities: [{
-            name: "/help | !!help",
+            name: "/help | Ice on me...",
         }]
     })
 }
