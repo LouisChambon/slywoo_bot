@@ -7,6 +7,6 @@ module.exports = async client => {
         let command = require(`../Commands/${file}`);
         if (!command.name ||typeof command.name !== "string") throw new TypeError(`Command ${file.slice(0, file.length - 3)} is not available.`)
         client.commands.set(command.name, command)
-        console.log(`Command ${file} loaded with success !`)
+        // console.log(`Command ${file} loaded with success !`)
     })
 }

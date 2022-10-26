@@ -6,7 +6,7 @@ module.exports = async client => {
 
         let event = require (`../Events/${file}`)
         client.on(file.split(".js").join(""), event.bind(null, client))
-        console.log(`Event ${file} loaded with success !`) 
+        // console.log(`Event ${file} loaded with success !`)
     })
 
 }
