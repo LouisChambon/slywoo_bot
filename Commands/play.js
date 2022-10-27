@@ -5,7 +5,7 @@ module.exports = {
 
     name: "play",
     description: "Plays the music you want",
-    permission: Discord.PermissionFlagsBits.Speak,
+    permission: Discord.PermissionFlagsBits.Connect,
     dm: true,
     category: "Music",
     options: [
@@ -20,18 +20,23 @@ module.exports = {
 
     async run(client, message, args) {
 
-        let song = args.getString("song");
+        client.DisTube = new DisTube(client, {
+            leaveOnStop: false,
+            emitNewSongOnly: true,
+            emitAddSongWhenCreatingQueue: false,
+            emitAddListWhenCreatingQueue: false,
+        })
 
+        console.log("Member: " + message.member.voice.channel)
+        const song = args.getString("song");
+        console.log("Song name : " + song)
         if (!song) return message.reply(`Error | Please enter a song url or query to search.`)
 
         client.DisTube.play(message.member.voice.channel, song, {
             member: message.member,
             textChannel: message.channel,
-            message
         })
 
-        // client.DisTube.on("playSong", (queue, song) => {
-        //     queue.textChannel.send("Now Playing : " + song.name)
-        // })
+        await message.reply("Now playing : " + song)
     }
 }
