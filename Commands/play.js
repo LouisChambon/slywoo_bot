@@ -24,7 +24,7 @@ module.exports = {
     async run(client, message, args) {
 
         client.DisTube = new DisTube(client, {
-            leaveOnStop: false,
+            leaveOnStop: true,
             emitNewSongOnly: true,
             emitAddSongWhenCreatingQueue: false,
             emitAddListWhenCreatingQueue: false,
@@ -32,6 +32,8 @@ module.exports = {
 
         const song = args.getString("song");
         if (!song) return message.reply(`Error | Please enter a song url or query to search.`)
+
+        if (!message.member.voice.channel) return message.reply("Please connect to a voice channel !");
 
         client.DisTube.play(message.member.voice.channel, song, {
             member: message.member,
