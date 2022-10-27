@@ -5,7 +5,10 @@ module.exports = {
 
     name: "play",
     description: "Plays the music you want",
-    permission: Discord.PermissionFlagsBits.Connect,
+    permissions: [
+        Discord.PermissionFlagsBits.Connect,
+        Discord.PermissionFlagsBits.Speak
+    ],
     dm: true,
     category: "Music",
     options: [
@@ -27,9 +30,7 @@ module.exports = {
             emitAddListWhenCreatingQueue: false,
         })
 
-        console.log("Member: " + message.member.voice.channel)
         const song = args.getString("song");
-        console.log("Song name : " + song)
         if (!song) return message.reply(`Error | Please enter a song url or query to search.`)
 
         client.DisTube.play(message.member.voice.channel, song, {
