@@ -20,6 +20,7 @@ module.exports = {
     async run(client, message, args) {
 
         let command;
+        
         if (args.getString("command")) {
             command = client.commands.get(args.getString("command"))
             if (!command) return message.reply("Command not found !")

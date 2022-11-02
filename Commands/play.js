@@ -9,7 +9,7 @@ module.exports = {
         Discord.PermissionFlagsBits.Connect,
         Discord.PermissionFlagsBits.Speak
     ],
-    dm: true,
+    dm: false,
     category: "Music",
     options: [
         {
@@ -28,7 +28,7 @@ module.exports = {
             emitNewSongOnly: true,
             emitAddSongWhenCreatingQueue: false,
             emitAddListWhenCreatingQueue: false,
-        })
+        });
 
         const song = args.getString("song");
         if (!song) return message.reply(`Error | Please enter a song url or query to search.`)

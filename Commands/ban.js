@@ -28,9 +28,11 @@ module.exports = {
         try {
             let user = await client.users.fetch(args._hoistedOptions[0].value)
             let member = message.guild.members.cache.get(user.id)
+
             if(!user || !member) return message.reply("Could not ban this member.")
 
             let reason = args.getString("reason");
+
             if (!reason) reason = "No reason provided.";
 
             if (message.user.id === user.id) return message.reply("You can't ban yourself bro :/")
@@ -46,6 +48,7 @@ module.exports = {
             await message.guild.bans.create(user.id, {reason: reason})
 
         } catch (err) {
+            
             return message.reply("Could not ban this member.")
         }
     }

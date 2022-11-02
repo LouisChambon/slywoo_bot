@@ -27,10 +27,12 @@ module.exports = {
     async run(client, message, args) {
 
         let channel = args.getChannel("chan")
+
         if (!channel) channel = message.channel;
         if (channel.id !== message.channel.id && !message.guild.channels.cache.get(channel.id)) return message.reply("Invalid channel")
 
         let number = args.getNumber("count")
+
         if (parseInt(number) <= 0 || parseInt(number) > 100) return message.reply("I need a number between `0` and `100` included.")
 
         await message.deferReply()

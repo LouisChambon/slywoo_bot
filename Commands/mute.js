@@ -36,9 +36,11 @@ module.exports = {
 
         let user = args.getUser("member");
         let member = message.guild.members.cache.get(user.id)
+
         if (!member || !user) return message.reply("Couldn't find this user.")
 
         let time = args.getString("time")
+        
         if (!time) return message.reply("Please select time duration !")
 
         if (isNaN(ms(time))) return message.reply("Bad format input !")

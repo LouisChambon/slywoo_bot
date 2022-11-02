@@ -41,6 +41,7 @@ module.exports = {
             await message.guild.members.unban(user, reason)
 
         } catch (err) {
+            
             return message.reply("Could not find this user.")
         }
     }

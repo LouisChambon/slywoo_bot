@@ -27,9 +27,11 @@ module.exports = {
 
         let user = args.getUser("member")
         let member = message.guild.members.cache.get(user.id)
+        
         if(!user || !member) return message.reply("Could not kick this member.")
 
         let reason = args.getString("reason");
+
         if (!reason) reason = "No reason provided.";
 
         if (message.user.id === user.id) return message.reply("You can't kick yourself bro :/")

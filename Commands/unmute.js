@@ -28,9 +28,11 @@ module.exports = {
 
         let user = args.getUser("member")
         let member = message.guild.members.cache.get(user.id)
+
         if (!member || !user) return message.reply("Couldn't find this member !")
 
         let reason = args.getString("reason")
+        
         if (!reason) reason = "No reason provided.";
 
         if (!member.moderatable) return message.reply("I can't unmute this member !")
