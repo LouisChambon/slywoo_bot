@@ -30,16 +30,23 @@ module.exports = {
             emitAddListWhenCreatingQueue: false,
         });
 
+        
         const song = args.getString("song");
         if (!song) return message.reply(`Error | Please enter a song url or query to search.`)
-
+        
         if (!message.member.voice.channel) return message.reply("Please connect to a voice channel !");
 
+        let Embed = new Discord.EmbedBuilder()
+            .setColor(client.color)
+            .setTitle(`Now Playing :`)
+            .setDescription(song)
+            .setTimestamp()
+        
         client.DisTube.play(message.member.voice.channel, song, {
             member: message.member,
             textChannel: message.channel,
         })
 
-        await message.reply("Now playing : " + song)
+        await message.reply({embeds: [Embed]});
     }
 }
