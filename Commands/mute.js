@@ -50,7 +50,7 @@ module.exports = {
         if (!reason) reason = "No reason provided.";
 
         if (message.user.id === user.id) return message.reply("You can't mute ypurself !")
-        if ((await message.guild.fetchOwner()).id === user.id) return message.reply("You can't mute the server owner !")
+        if (message.guild.ownerId === user.id) return message.reply("You can't mute the server owner !")
         if (!member.moderatable) return message.reply("I can't mute this member !")
         if (message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply("You don't have the rights to kick this member")
         if (member.isCommunicationDisabled()) return message.reply("This member is already muted !")

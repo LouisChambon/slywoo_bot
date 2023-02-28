@@ -4,7 +4,7 @@
   "description": "Slywoo Discord Bot",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "YTDL_NO_UPDATE=1 node index.js"
   },
   "repository": {
     "type": "git",
